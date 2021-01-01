@@ -1,0 +1,44 @@
+{
+    "name":         "diegospm/http-provider-responses",
+    "description":  "Responses for HTTP Provider abstraction",
+    "license":      "MIT",
+    "homepage":     "https://github.com/diegospm",
+    "keywords": [
+        "HTTP",
+        "HTTP Provider",
+        "HTTP Client",
+        "HTTP Response",
+        "Json Response"
+    ],
+    "authors": [
+        {
+            "name": "Diego Miranda",
+            "role": "Software Engineer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "diegospm/http-provider-interfaces": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "phpunit/php-code-coverage": "^9.0",
+        "friendsofphp/php-cs-fixer": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "HttpProvider\\Responses\\": "src/HttpProvider/Responses/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HttpProvider\\Tests\\Responses\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --colors=always tests",
+        "test-coverage": "./vendor/bin/phpunit --colors=always --coverage-clover coverage.clover tests",
+        "lint": "php-cs-fixer fix --diff --dry-run",
+        "fix": "php-cs-fixer fix"
+    }
+}
