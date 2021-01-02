@@ -8,9 +8,9 @@ use HttpProvider\Interfaces\ResponseInterface;
 
 class JsonResponse implements ResponseInterface
 {
-    private string $content;
+    private int $code = 0;
 
-    private int $code;
+    private string $content = '';
 
     public function setContent(string $content): ResponseInterface
     {
