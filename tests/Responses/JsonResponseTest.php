@@ -16,7 +16,7 @@ class JsonResponseTest extends TestCase
 
     private const CONTENT = 'HTTP/1.1 200' . "\r\n\r\n" . 'Foo Bar';
 
-    private const DATA = array('foo' => 'bar');
+    private const DATA = ['foo' => 'bar'];
 
     protected function setUp(): void
     {
@@ -61,8 +61,8 @@ class JsonResponseTest extends TestCase
         $this->response->setContent(self::CONTENT);
         $this->assertEquals(null, $this->response->toObject());
 
-        $object = new \stdClass;
-        $object->foo = 'bar';
+        $object         = new \stdClass;
+        $object->foo    = 'bar';
 
         $this->response->setContent(json_encode(self::DATA));
         $this->assertEquals($object, $this->response->toObject());
