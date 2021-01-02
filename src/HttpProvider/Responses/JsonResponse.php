@@ -12,18 +12,6 @@ class JsonResponse implements ResponseInterface
 
     private string $content = '';
 
-    public function setContent(string $content): ResponseInterface
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function getContent(): string
-    {
-        return $this->content;
-    }
-
     public function setStatusCode(int $code): ResponseInterface
     {
         $this->code = $code;
@@ -34,6 +22,18 @@ class JsonResponse implements ResponseInterface
     public function getStatusCode(): int
     {
         return $this->code;
+    }
+
+    public function setContent(string $content): ResponseInterface
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getContent(): string
+    {
+        return $this->content;
     }
 
     public function toArray(): ?array
