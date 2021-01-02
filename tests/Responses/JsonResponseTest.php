@@ -25,17 +25,6 @@ class JsonResponseTest extends TestCase
         $this->response = new JsonResponse();
     }
 
-    public function testSetContent(): void
-    {
-        $this->assertInstanceOf(ResponseInterface::class, $this->response->setContent(self::CONTENT));
-    }
-
-    public function testGetContent(): void
-    {
-        $this->response->setContent(self::CONTENT);
-        $this->assertEquals(self::CONTENT, $this->response->getContent());
-    }
-
     public function testSetStatusCode(): void
     {
         $this->assertInstanceOf(ResponseInterface::class, $this->response->setStatusCode(self::CODE));
@@ -43,8 +32,17 @@ class JsonResponseTest extends TestCase
 
     public function testGetStatusCode(): void
     {
-        $this->response->setStatusCode(self::CODE);
-        $this->assertEquals(self::CODE, $this->response->getStatusCode());
+        $this->assertIsInt($this->response->getStatusCode());
+    }
+
+    public function testSetContent(): void
+    {
+        $this->assertInstanceOf(ResponseInterface::class, $this->response->setContent(self::CONTENT));
+    }
+
+    public function testGetContent(): void
+    {
+        $this->assertIsString($this->response->getContent());
     }
 
     public function testToArray(): void
