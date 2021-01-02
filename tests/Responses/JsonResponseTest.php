@@ -48,7 +48,7 @@ class JsonResponseTest extends TestCase
     public function testToArray(): void
     {
         $this->response->setContent(self::CONTENT);
-        $this->assertEquals(null, $this->response->toArray());
+        $this->assertNull($this->response->toArray());
 
         $this->response->setContent(json_encode(self::DATA));
         $this->assertEquals(self::DATA, $this->response->toArray());
@@ -57,7 +57,7 @@ class JsonResponseTest extends TestCase
     public function testToObject(): void
     {
         $this->response->setContent(self::CONTENT);
-        $this->assertEquals(null, $this->response->toObject());
+        $this->assertNull($this->response->toObject());
 
         $object         = new \stdClass;
         $object->foo    = 'bar';
